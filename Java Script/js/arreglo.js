@@ -1,49 +1,38 @@
-//compras a un supermercado
-   /* let carrito=[
-    "Leche", 1,
-    "carne", 2,
-    "papa", 3,
-    "fideos", 1];
-  /*  console. log("Item"+carrito[0]);
-    console. log("Cantidad:"+carrito [1]); 
-    console. Log("Item:"+carrito[2]);
-    console. log("Cantidad:"+carrito[3]);
-    console, Log("Item:"+carrito[4]);
-    console. Log("Cantidad:"+carrito [5]);
-    console. log("Item:"+carrito[6]);
-    console. log("Cantidad:"+carrito[7]);
-    console.log("impresion  completa ");
-    console.log(carrito);
-    carrito.push("zapatos", 5);
-    console.log(carrito);*/
+/*
+let carrito=["leche",1,"carne",2,"papa",3,"fideos",1];
 
-   /* let item = {nombre: 'leche', cantidad: 1};
-console.log("item: " + item.nombre);
-console.log("cantidad: " + item.cantidad);
-
-let carrito = [
-  {nombre: 'leche', cantidad: 1},
-  {nombre: 'carne', cantidad: 2},
-  {nombre: 'fideo', cantidad: 1},
-  {nombre: 'papa', cantidad: 3}
-];
+console.log("Item:"+carrito[0]);
+console.log("Cantidad:"+carrito[1]);
+console.log("Item:"+carrito[2]);
+console.log("Cantidad:"+carrito[3]);
+console.log("Item:"+carrito[4]);
+console.log("Cantidad:"+carrito[5]);
+console.log("Item:"+carrito[6]);
+console.log("Cantidad:"+carrito[7]);
+console.log("IMPRESION COMPLETA");
 console.log(carrito);
 
-// Agregar nuevo elemento al carrito
-carrito.push({nombre: 'soda', cantidad: 4});
 
-console.log("Impresión completa:");
-console.log(carrito);*/
+//COMO SE ADICIONA UN NUEVO ITEM Y CANTIDAD
+
+// Nuevo ítem y su cantidad
+let nuevoItem = "pancito";
+let nuevaCantidad = 2;
+
+// Agregar el nuevo ítem y su cantidad al arreglo carrito
+carrito.push(nuevoItem, nuevaCantidad);
+
+console.log(carrito);
+
+*/
 
 
-
-//adicionar item del precio y el total  
 let carrito=[{nombre: 'Leche',cantidad:1,precio:7.5},
-             {nombre: 'Carne',cantidad:2,precio:15},
+             {nombre: 'Carne',cantidad:2,precio:25},
              {nombre: 'fideo',cantidad:1,precio:10},
              {nombre: 'papa',cantidad:3,precio:6}];
 
-             console.log("Carrito con precios y totales:");
+             console.log("Carrito con precios y totales:"); 
              carrito.forEach((item) => {
                // Calcular precio total
                const precioTotal = item.cantidad * item.precio;
@@ -52,16 +41,68 @@ let carrito=[{nombre: 'Leche',cantidad:1,precio:7.5},
                console.log("Cantidad: " + item.cantidad);
                console.log("Precio: Bs" + item.precio);
                console.log("Precio Total: Bs" + precioTotal);
-               console.log("------------------------");
+               
              });
 
-item={nombre: 'pilfrut',cantidad:5,precio:1.5};
+item={nombre: 'cocacola',cantidad:5,precio:15};
 carrito.push(item);
+
+let carrito2=[{nombre: 'Leche',cantidad:1,precio:7.5},
+{nombre: 'Carne',cantidad:2,precio:25},
+{nombre: 'fideo',cantidad:1,precio:10},
+{nombre: 'papa',cantidad:3,precio:6}];
+
+
+/*
 const precioTotal = item.cantidad * item.precio;
              
 console.log("Nombre: " + item.nombre);
 console.log("Cantidad: " + item.cantidad);
 console.log("Precio: Bs" + item.precio);
 console.log("Precio Total: Bs" + precioTotal);
-console.log("------------------------");
+
+console.log(carrito);
+*/
+
+
+/*
+//Imprimir con Etiquetas
+// Iterar sobre cada elemento del carrito
+carrito.forEach(item => {
+    console.log("Item: " + item.nombre + ", Cantidad: " + item.cantidad);
+});
+
+//Adicionar un nuevo registro
+// Nuevo registro a agregar
+let nuevoRegistro = { nombre: 'arroz', cantidad: 2 };
+
+// Agregar el nuevo registro al arreglo carrito
+carrito.push(nuevoRegistro);
+
+// Imprimir el carrito actualizado
+console.log(carrito);
+*/
+
+/*
+// Calcular el total
+let total = item.cantidad * item.precio;
+
+// Imprimir cantidad, precio y total
+console.log("Cantidad: " + item.cantidad);
+console.log("Precio: $" + item.precio);
+console.log("Total: $" + total.toFixed(2)); // Redondeamos el total a dos decimales
+*/
+
+//Buscar funciones o procesos para ordenar un ARRAY
+//Ordenar el array de carrito
+//Ordenar un array linial
+
+let numeros=[4,2,6,1,8,3,10];
+numeros.sort((a,b)=>a-b);
+console.log(numeros);
+console.log("IMPRESION ORDENADO POR PRECIO")
+carrito.sort((a,b) => a.precio - b.precio);
+console.log(carrito);
+console.log("IMPRESION ORDENADO POR NOMBRE");
+carrito.sort((a,b) => a.nombre.localeCompare(b.nombre));
 console.log(carrito);
