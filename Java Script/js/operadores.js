@@ -25,57 +25,42 @@ console.log(a+b+Number("5"));*/
 
 
 // Función para generar una nota aleatoria en el rango de 20 a 100
-function generarNota() {
-    return Math.floor(Math.random() * 81) + 20; // Número aleatorio entre 20 y 100
+let notas=[{nombre: 'Juan',nota:0},
+{nombre: 'Julio',nota:0},
+{nombre: 'Judas',nota:0},
+{nombre: 'Jariel',nota:0},
+{nombre: 'James',nota:0},
+{nombre: 'Jorge',nota:0},
+{nombre: 'Jeans',nota:0},
+{nombre: 'Julian',nota:0},
+{nombre: 'Jeremias',nota:0},
+{nombre: 'Jane',nota:0}];
+
+console.log(Notas);
+
+notas.forEach(nota=>{
+nota.nota=Math.random()*(10-2+1);
+
+});
+Notas.forEach(nota=>{
+  let $clasificar;
+  switch(nota.nota){
+    case 2: case 3:case 4:
+      $clasificar="insufi"
+      break;
+      case 5: case 6:
+      $clasificar="insufi"
+      break;
+      case 7: case 8:
+        $clasificar="insufi"
+        break;
+        case 9:
+          $clasificar="insufi"
+          break;
+          case 10:
+            $clasificar="insufi"
+            break;
+      
   }
-  
-  // Nombres de ejemplo
-  const nombres = ["Juan", "María", "Luis", "Ana", "Carlos", "Sofía", "Pedro", "Laura", "Miguel", "Valeria"];
-  
-  // Array de estudiantes con nombres y notas aleatorias
-  let estudiantes = [];
-  
-  // Generar notas aleatorias para los estudiantes
-  for (let i = 0; i < 10; i++) {
-    const nombre = nombres[Math.floor(Math.random() * nombres.length)]; // Obtener un nombre aleatorio
-    const nota = generarNota(); // Generar una nota aleatoria
-    estudiantes.push({ nombre: nombre, nota: nota }); // Agregar el estudiante al array
-  }
-  
-  console.log("Estudiantes:");
-  console.log(estudiantes);
-  
-  // Obtener la nota mayor
-  let notaMayor = -Infinity; // Inicializar la variable con un valor muy pequeño
-  
-  for (let i = 0; i < estudiantes.length; i++) {
-    const estudiante = estudiantes[i];
-    if (estudiante.nota > notaMayor) {
-      notaMayor = estudiante.nota;
-    }
-  }
-  
-  console.log("Nota mayor:", notaMayor);
-  
-  // Obtener la nota menor
-  let notaMenor = Infinity; // Inicializar la variable con un valor muy grande
-  
-  for (let i = 0; i < estudiantes.length; i++) {
-    const estudiante = estudiantes[i];
-    if (estudiante.nota < notaMenor) {
-      notaMenor = estudiante.nota;
-    }
-  }
-  
-  console.log("Nota menor:", notaMenor);
-  
-  // Calcular el promedio de las notas
-  let sumatoriaNotas = 0; // Variable para almacenar la sumatoria de las notas
-  
-  for (let i = 0; i < estudiantes.length; i++) {
-    const estudiante = estudiantes[i];
-    sumatoriaNotas += estudiante.nota;
-  }
-  
-  const promedioNotas = sumatoriaNotas / estudiantes.length;
-  console.log("Promedio de las notas:", promedioNotas);
+ 
+})
