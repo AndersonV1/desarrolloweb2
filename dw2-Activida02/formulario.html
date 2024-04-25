@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e06540; /* Color de fondo */
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
+        #form-data {
+            margin: 20px auto;
+            width: 80%;
+            background-color: #cbce1f;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #67c002;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #e0cb0a;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #095ba7;
+        }
+        tr:hover {
+            background-color: #0ac2a9;
+        }
+    </style>
+</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos del formulario</title>
+    <!-- CSS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl7/1L_dstPt3HV5HzF6Gvk/e9T9hXmJ58bldgTk+" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #form-data {
+            margin: 20px auto;
+            max-width: 800px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Datos del formulario</h1>
+    <div id="form-data">
+        <table id="data-table">
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Teléfono</th>
+                <th>Email</th>
+            </tr>
+        </table>
+    </div>
+    <!-- JavaScript Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gybBud7RduPuemT//+jJXB16zg6i8UQD3lV5uDC3Yc7bz1Eeow" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    <script>
+        window.onload = function() {
+            var formDataDiv = document.getElementById('form-data');
+            var table = document.getElementById('data-table');
+            var formData = localStorage.getItem('formData');
+            if (formData) {
+                var data = JSON.parse(formData);
+                data.forEach(function(item) {
+                    var newRow = table.insertRow(-1);
+                    var nombreCell = newRow.insertCell(0);
+                    var apellidoCell = newRow.insertCell(1);
+                    var telefonoCell = newRow.insertCell(2);
+                    var emailCell = newRow.insertCell(3);
+                    nombreCell.innerHTML = item.nombre;
+                    apellidoCell.innerHTML = item.apellido;
+                    telefonoCell.innerHTML = item.telefono;
+                    emailCell.innerHTML = item.email;
+                });
+            } else {
+                formDataDiv.innerHTML = '<p>No se han recibido datos del formulario.</p>';
+            }
+        }
+
+        function guardarDatos(nombre, apellido, telefono, email) {
+            var formData = localStorage.getItem('formData');
+            var data = formData ? JSON.parse(formData) : [];
+            data.push({nombre: nombre, apellido: apellido, telefono: telefono, email: email});
+            localStorage.setItem('formData', JSON.stringify(data));
+        }
+
+        window.addEventListener('DOMContentLoaded', function() {
+            var params = new URLSearchParams(window.location.search);
+            if (params.has('nombre') && params.has('apellido') && params.has('telefono') && params.has('email')) {
+                var nombre = params.get('nombre');
+                var apellido = params.get('apellido');
+                var telefono = params.get('telefono');
+                var email = params.get('email');
+                guardarDatos(nombre, apellido, telefono, email);
+            }
+        });
+    </script>
+</body>
+</html>
+
+</html>
